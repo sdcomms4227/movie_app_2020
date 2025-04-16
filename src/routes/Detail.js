@@ -7,20 +7,15 @@ function Detail() {
     const navigate = useNavigate();
 
     React.useEffect(() => {
-        console.log('Location:', location);
-        console.log('Location state:', location.state);
         if (!location.state) {
-            console.log('No state found, redirecting to home');
             navigate("/");
         }
     }, [location, navigate]);
 
     if (!location.state) {
-        console.log('Rendering loading state');
         return <div>Loading...</div>;
     }
 
-    console.log('Rendering movie details with state:', location.state);
     const { title, year, summary, poster, genres } = location.state;
     return (
         <div className="detail">
